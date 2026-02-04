@@ -14,9 +14,18 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.productivity.ui.theme.PrimaryGreen
 import com.example.productivity.ui.theme.PrimaryOrange
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 
 @Composable
-fun WeeklyProgressScreen() {
+fun WeeklyProgressScreen(
+    viewModel: WeeklyStatsViewModel = hiltViewModel()
+) {
+    val insight by viewModel.insight.collectAsState()
+    val tip by viewModel.tip.collectAsState()
+    // For now, charts are still dummy data, or could be connected to ViewModel later
+    
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -89,7 +98,7 @@ fun WeeklyProgressScreen() {
                 Text("INSIGHT", fontSize = 10.sp, color = Color.Black.copy(alpha=0.6f), fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
-                    "You completed 80% of planned work this week.",
+                    text = insight,
                     color = Color.Black,
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold
@@ -109,7 +118,7 @@ fun WeeklyProgressScreen() {
                 Text("QUICK TIP", fontSize = 10.sp, color = Color.Black.copy(alpha=0.6f), fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
-                    "Most delays happen in the evening. Try starting tasks 1hr earlier.",
+                    text = tip,
                     color = Color.Black,
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold

@@ -1,6 +1,12 @@
 # Sarthi (Productivity App)
 
 Sarthi is a modern productivity application built with Jetpack Compose, Firebase, and AI-driven insights.
+ 
+## Features
+- **Smart Task Management**: Organize tasks with priorities and estimated effort.
+- **Weekly AI Insights**: Get personalized productivity analysis and tips powered by Google Gemini.
+- **Declutter Mode**: Quickly reschedule or clear unfinished tasks at the end of the day.
+- **Guest Mode**: Try the app without creating an account.
 
 ## Getting Started
 

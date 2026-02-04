@@ -6,6 +6,8 @@ import com.example.productivity.data.repository.FakeFocusRepository
 import com.example.productivity.domain.repository.ProjectRepository
 import com.example.productivity.domain.repository.TaskRepository
 import com.example.productivity.domain.repository.FocusRepository
+import com.example.productivity.domain.repository.GeminiRepository
+import com.example.productivity.data.repository.GeminiRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -33,4 +35,10 @@ abstract class RepositoryModule {
     abstract fun bindFocusRepository(
         fakeFocusRepository: FakeFocusRepository
     ): FocusRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindGeminiRepository(
+        geminiRepositoryImpl: GeminiRepositoryImpl
+    ): GeminiRepository
 }

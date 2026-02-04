@@ -23,6 +23,7 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+        buildConfigField("String", "GEMINI_API_KEY", "\"${project.findProperty("AI_API_KEY") ?: ""}\"")
     }
 
     buildTypes {
@@ -78,6 +79,9 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.auth)
     implementation(libs.firebase.firestore)
+
+    // AI
+    implementation(libs.google.ai.client.generativeai)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

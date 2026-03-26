@@ -42,8 +42,20 @@ We use the [Secrets Gradle Plugin](https://github.com/google/secrets-gradle-plug
 4.  Place the `google-services.json` file in the `app/` directory of this project.
 5.  Enable **Authentication** (Email/Password & Guest) and **Cloud Firestore** in your Firebase console.
 
-### 5. Build and Run
-Open the project in Android Studio, wait for Gradle to sync, and run it on your emulator or physical device.
+### 5. Quick Setup (Using Antigravity)
+If you are a friend/contributor who has been given the `google-services.json` and `AI_API_KEY` by the owner, you can use **Antigravity** to set up everything automatically. 
+
+Simply open your Antigravity in Android Studio and use this prompt:
+
+```text
+I have just cloned this project and I need to set up my local secrets. 
+Please do the following:
+1. Create a file at `app/google-services.json` and paste the contents that the owner shared with me.
+2. Open the `local.properties` file in the root directory and append `AI_API_KEY=YOUR_KEY_HERE`.
+```
+
+### 6. Build and Run
+After completing the setup, click **"Sync Project with Gradle Files"** in Android Studio, then run on your device.
 
 ## Security Note
 **Never commit your `local.properties` or `google-services.json` files.** These are excluded by `.gitignore` to protect your private keys and project configuration.
